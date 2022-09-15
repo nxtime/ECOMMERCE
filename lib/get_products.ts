@@ -2,14 +2,19 @@ import { faker } from "@faker-js/faker";
 
 const MOCK_PRODUCTS: any = [];
 
+const randomNumber = () => Math.floor(Math.random() * 3) === 1;
+
 for (let i = 1; i <= 2000; i += 1) {
     MOCK_PRODUCTS.push({
-        id: i,
+        id: i.toString(),
         name: faker.commerce.product(),
         price: parseFloat(faker.commerce.price(10, 200, 2)),
         description: faker.lorem.lines(4),
         image: "/images/home_page_banner.png"
     });
+    if (randomNumber()) {
+        MOCK_PRODUCTS[i - 1].prevPrice = MOCK_PRODUCTS[i - 1].price + MOCK_PRODUCTS[i - 1].price * 0.1;
+    }
 }
 
 const PRODUCTS_PAGES: any[] = [];
@@ -51,8 +56,6 @@ export const getPrefetchProductsPages = (currentPage: number, numberOfProducts?:
 
     NEW_PRODUCTS_LIST = NEW_PRODUCTS_LIST.filter((p) => p.page - 1 === currentPage || p.page === currentPage || p.page + 1 === currentPage);
 
-    console.log(NEW_PRODUCTS_LIST, currentPage);
-
     return {
         pages: numberOfProducts === undefined ? NUMBER_OF_PAGES : NEW_PRODUCTS_LIST.length,
         productsItems: NEW_PRODUCTS_LIST
@@ -60,6 +63,6 @@ export const getPrefetchProductsPages = (currentPage: number, numberOfProducts?:
 };
 
 export const getProductByID = (id: any) => {
-    const product = MOCK_PRODUCTS.filter((p: any) => p.id === parseInt(id, 10))[0];
+    const product = MOCK_PRODUCTS.filter((p: any) => p.id === id)[0];
     return product;
 };

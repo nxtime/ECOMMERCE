@@ -30,20 +30,15 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/perfil": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/perfil.js"
-    ],
-    "/perfil/[option]": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/perfil/[option].js"
-    ],
     "/produto/[id]": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/produto/[id].js"
+    ],
+    "/produtos": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/produtos.js"
     ]
   },
   "ampFirstPages": []

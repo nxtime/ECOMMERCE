@@ -19,9 +19,10 @@ interface ProductsListType {
     }[];
     title: string;
     pages: number;
+    showPagination?: boolean;
 }
 
-export default function ProductsList({ products, title, pages }: ProductsListType) {
+export default function ProductsList({ products, title, pages, showPagination = false }: ProductsListType) {
     const { lastVisitedPage, setLastVisitedPage, setLastVisitedPagePos, lastVisitedPagePos } = userSavePointStore((state) => state) as UserSavePointStoreType;
 
     useEffect(() => {
@@ -45,14 +46,17 @@ export default function ProductsList({ products, title, pages }: ProductsListTyp
             </div>
             <div className="products-container">
                 {currentPageProducts.map((product: ProductType, index: number) => (
-                    <Product
-                        // eslint-disable-next-line react/no-array-index-key
-                        key={index}
-                        {...product}
-                    />
+                    <Product key={index} {...product} />
                 ))}
             </div>
-            <Pagination className="bordered" numberOfPages={pages} currentPage={lastVisitedPage} setCurrentPage={(page: number) => setLastVisitedPage(page)} />
+            {showPagination && (
+                <Pagination
+                    className="bordered"
+                    numberOfPages={pages}
+                    currentPage={lastVisitedPage}
+                    setCurrentPage={(page: number) => setLastVisitedPage(page)}
+                />
+            )}
         </StyledProductsList>
     );
 }

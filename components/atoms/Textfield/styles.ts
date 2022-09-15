@@ -4,8 +4,12 @@ const StyledTextfield = styled.div`
     ${({ theme }) => css`
         display: flex;
         flex-direction: column;
+        justify-content: center;
 
         .input__actions {
+            display: flex;
+            align-items: center;
+            
             & input {
                 padding: 0.75rem 1rem;
                 /* width: 16rem;

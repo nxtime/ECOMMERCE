@@ -17,7 +17,6 @@ const StyledSubmenu = styled.div`
             display: flex;
             flex-direction: column;
             gap: 1rem;
-
             ul {
                 display: flex;
 

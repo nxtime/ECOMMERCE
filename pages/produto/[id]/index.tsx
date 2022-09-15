@@ -22,7 +22,7 @@ export const ProductDetailPage: NextPage = () => {
     if (!product) return <h2>Produto não encontrado</h2>;
 
     // eslint-disable-next-line react/jsx-props-no-spreading
-    return product && <ProductDetail {...product} />;
+    return product && <ProductDetail {...product} id={id} />;
 };
 
 export default ProductDetailPage;

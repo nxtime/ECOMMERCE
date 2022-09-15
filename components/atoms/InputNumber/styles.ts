@@ -27,14 +27,15 @@ const StyledInputNumber = styled.div`
             &-actions {
                 display: flex;
                 flex-direction: column;
-                width: 2.5rem;
+                flex: 1;
                 height: 100%;
                 background-color: ${theme.colors["primary-900"]};
                 color: ${theme.colors["primary-100"]};
 
                 & > button {
                     display: flex;
-                    /* flex: 1; */
+                    flex: 1;
+                    width: 100%;
                     justify-content: center;
                     padding: .5rem 1rem;
                     align-items: center;

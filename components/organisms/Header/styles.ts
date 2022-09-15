@@ -5,6 +5,7 @@ const StyledHeader = styled("header")`
     ${({ theme }) => css`
         display: flex;
         align-items: center;
+        flex-direction: column;
         width: 100%;
         position: fixed;
         top: 0;
@@ -14,7 +15,7 @@ const StyledHeader = styled("header")`
         background-color: ${theme.colors["primary-300"]};
         color: ${theme.colors["primary-900"]};
         z-index: 99;
-        
+
         & .header {
             max-width: 1000px;
             margin-inline: auto;
@@ -46,7 +47,7 @@ const StyledHeader = styled("header")`
             &__action {
                 display: none;
                 margin-left: auto;
-                ${breakpoints.mobile.standard`display: block;`}
+                ${breakpoints.mobile.standard`display: flex;`}
             }
 
             &__nav-items {
@@ -81,24 +82,44 @@ const StyledHeader = styled("header")`
 
                     &.perfil {
                         background-color: ${theme.colors["primary-500"]};
-                        display: flex;
-                        align-items: center;
-                        
+                        & a {
+                            display: flex;
+                            cursor: pointer;
+                            align-items: center;
+                        }
+                            
                         & .perfil__img {
                             /* width: 2rem; */
-                            padding: 1.5rem;
+                            /* padding: 1.5rem; */
+                            width: 2.5rem;
+                            height: 2.5rem;
                             /* height: 100%; */
                             background-color: red;
+                            & > span {
+                                width: 100%!important;
+                                height: 100%!important;
+                            }
                         }
 
-                        a {
+                        p {
                             padding-inline: .5rem;
                         }
+                    }
+
+                    &.cart {
+                        position: relative;
+                        ${breakpoints.mobile.standard(`
+                            display: none;
+                        `)}
                     }
                 }
             }
 
             &__submenu {
+                width: 100%;
+                &.cart-submenu {
+                    /* position: relative; */
+                }
             }
     `}
 `;

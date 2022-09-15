@@ -2,8 +2,14 @@ import { useRef, useState } from "react";
 import Button from "../Button";
 import StyledInputNumber from "./styles";
 
-export default function InputNumber() {
-    const [inputValue, setInputValue] = useState<number>(0);
+type InputNumberProps = {
+    maxNumber?: number;
+    defaultNumber?: number;
+    onChange?: (value: number) => void;
+};
+
+export default function InputNumber({ maxNumber = 999, defaultNumber = 1, onChange }: InputNumberProps) {
+    const [inputValue, setInputValue] = useState<number>(defaultNumber < 0 || defaultNumber > maxNumber ? 1 : defaultNumber);
     const inputRef = useRef<HTMLInputElement>(null);
 
     return (
@@ -11,12 +17,14 @@ export default function InputNumber() {
             <div className="input__number-field">
                 <input
                     ref={inputRef}
-                    value={Number.isNaN(inputValue) ? 0 : inputValue}
+                    value={inputValue}
                     type="number"
                     maxLength={3}
                     onChange={() => {
-                        if (parseInt(inputRef.current!.value, 10) > 999) return;
-                        setInputValue(parseInt(inputRef.current!?.value, 10));
+                        const newValue = typeof inputRef.current!.value === "string" ? 1 : parseInt(inputRef.current!.value, 10);
+                        if (newValue > maxNumber || newValue < 1) return;
+                        setInputValue(newValue);
+                        onChange?.(newValue);
                     }}
                 />
             </div>
@@ -25,8 +33,9 @@ export default function InputNumber() {
                     type="button"
                     color="secondary"
                     onClick={() => {
-                        if (inputValue === 999) return;
+                        if (inputValue === maxNumber) return;
                         setInputValue((prev) => prev + 1);
+                        onChange?.(inputValue + 1);
                     }}
                 >
                     <span>{"<"}</span>
@@ -35,8 +44,9 @@ export default function InputNumber() {
                     type="button"
                     color="secondary"
                     onClick={() => {
-                        if (inputValue === 0) return;
+                        if (inputValue === 1) return;
                         setInputValue((prev) => prev - 1);
+                        onChange?.(inputValue - 1);
                     }}
                 >
                     <span>{">"}</span>

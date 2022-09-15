@@ -1,3 +1,4 @@
+import breakpoints from "@/design/mixins";
 import styled, { css } from "styled-components";
 
 const StyledProductsList = styled.div`
@@ -9,6 +10,9 @@ const StyledProductsList = styled.div`
         padding: 2rem;
         gap: 2rem;
         background-color: ${theme.colors["neutral-100"]};
+        ${breakpoints.mobile.standard`
+            padding: 2rem .25rem;
+        `}
 
         .products-title {
             position: relative;
@@ -28,6 +32,10 @@ const StyledProductsList = styled.div`
             width: 100%;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 1rem;
+            ${breakpoints.mobile.standard`
+                grid-template-columns: repeat(auto-fit, minmax(125px, 1fr));
+                gap: .25rem;
+            `}
         }
     `}
 `;

@@ -32,7 +32,7 @@ export default function Products() {
                 <Button color="secondary" className={`contained ${!isMenuOpen && "menu-opened"}`} onClick={() => setIsMenuOpen((s) => !s)}>
                     {isMenuOpen ? "Fechar" : "Abrir"}
                 </Button>
-                <ProductsList title="Produtos" products={productsItems} pages={pages} />
+                <ProductsList title="Produtos" products={productsItems} pages={pages} showPagination />
             </div>
         </StyledProducts>
     );

@@ -29,6 +29,15 @@ export const Home: NextPage = ({ products }: any) => {
                 alt="Qualquer coisa"
             />
             <ProductsList title="Produtos Populares" products={productsItems} pages={pages} />
+
+            <BannerText
+                src="/images/home_page_banner.png"
+                title="CALÇAS & CAMISAS"
+                subtitle="por apenas R$99,99"
+                width={1000}
+                height={240}
+                alt="Qualquer coisa"
+            />
         </>
     );
 };

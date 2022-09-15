@@ -1,10 +1,11 @@
 /* eslint-disable max-len */
 import styled, { css } from "styled-components";
 
-const StyledButton = styled.button<{ color: string; size: "sm" | "md" | "lg" }>`
+const StyledButton = styled.button<{ color: string; size: "sm" | "md" | "lg"; nopad: boolean }>`
     ${({
         theme,
         color,
+        nopad,
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
         size
     }) => {
@@ -21,7 +22,7 @@ const StyledButton = styled.button<{ color: string; size: "sm" | "md" | "lg" }>`
         const defaultBgColorOption = (isPrimary: boolean) => (isPrimary ? isPrimaryBgColor[0] : isPrimaryBgColor[1]);
 
         return css`
-            padding: 1rem 1rem;
+            padding: ${!nopad ? "1rem" : 0};
             max-height: 4rem;
             width: fit-content;
             cursor: pointer;
