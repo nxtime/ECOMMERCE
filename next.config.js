@@ -7,7 +7,10 @@ const pluginsConfig = [[withTranspileModules, { transpileModules: ["@iconify/rea
 
 const nextConfig = {
     reactStrictMode: true,
-    swcMinify: true
+    swcMinify: true,
+    images: {
+        domains: ["loremflickr.com"]
+    }
 };
 
 module.exports = withPlugins([nextConfig, pluginsConfig]);

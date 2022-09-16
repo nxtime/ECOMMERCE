@@ -1,4 +1,5 @@
 import Button from "@/components/atoms/Button";
+import Typography from "@/components/atoms/Typography";
 import Categories from "@/components/organisms/Categories";
 import Filters from "@/components/organisms/Filters";
 import ProductsList from "@/components/organisms/ProductsList";
@@ -22,7 +23,10 @@ export default function Products() {
             <aside className={isMenuOpen ? "open" : "closed"}>
                 {isMenuOpen && (
                     <>
-                        <Categories />
+                        <Typography type="title" size="lg">
+                            Categorias
+                        </Typography>
+                        {/* <Categories /> */}
                         <Filters />
                         <Button color="secondary">Filtrar</Button>
                     </>

@@ -1,8 +1,8 @@
 import breakpoints from "@/design/mixins";
 import styled, { css } from "styled-components";
 
-const StyledProduct = styled("div")<{ src: string }>`
-    ${({ theme, src }) => css`
+const StyledProduct = styled("div")`
+    ${({ theme }) => css`
         background-color: ${theme.colors["primary-300"]};
         display: flex;
         flex-direction: column;
@@ -38,37 +38,41 @@ const StyledProduct = styled("div")<{ src: string }>`
                 }
             }
             &__image {
-                height: 100%;
+                height: 15rem;
                 display: flex;
                 flex-direction: column;
                 position: relative;
                 cursor: pointer;
                 min-width: 100%;
-                background-image: url(${src});
+                background-color: ${theme.colors["primary-100"]};
                 background-size: cover;
                 background-position: center;
-                transition: all ease 0.5s;
+                overflow: hidden;
 
                 &:hover {
-                    filter: brightness(0.5);
                     background-position: left;
+                    & > span:last-child {
+                        filter: brightness(0.5);
+                        transform: scale(1.25);
+                    }
                 }
                 & > span:first-child {
                     position: absolute;
                     background-color: ${theme.colors.warning};
                     color: ${theme.colors.white};
                     padding: 1rem;
+                    z-index: 1;
                     ${breakpoints.mobile.standard(`
                         // bottom: 0;
                         font-size: ${theme.sizing.sm};
-                    `)}
+                        `)}
                 }
-
                 & > span:last-child {
                     width: 100% !important;
+                    transition: all ease 0.5s;
 
                     & > img {
-                        display: none !important;
+                        /* display: none !important; */
                     }
                 }
             }

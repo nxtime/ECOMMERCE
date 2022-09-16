@@ -3,14 +3,17 @@ import { faker } from "@faker-js/faker";
 const MOCK_PRODUCTS: any = [];
 
 const randomNumber = () => Math.floor(Math.random() * 3) === 1;
+// const image = "/images/home_page_banner.png";
 
-for (let i = 1; i <= 2000; i += 1) {
+const image = () => faker.image.fashion(1280, 720, true);
+
+for (let i = 1; i <= 100; i += 1) {
     MOCK_PRODUCTS.push({
         id: i.toString(),
         name: faker.commerce.product(),
         price: parseFloat(faker.commerce.price(10, 200, 2)),
         description: faker.lorem.lines(4),
-        image: "/images/home_page_banner.png"
+        image: image()
     });
     if (randomNumber()) {
         MOCK_PRODUCTS[i - 1].prevPrice = MOCK_PRODUCTS[i - 1].price + MOCK_PRODUCTS[i - 1].price * 0.1;

@@ -17,12 +17,12 @@ interface ProductType {
 export default function Product({ name, image, price, prevPrice, id }: ProductType) {
     const addToCart = userCartStore((state) => state.addToCart);
     return (
-        <StyledProduct className="product" src={image}>
+        <StyledProduct className="product">
             <div className="product__container">
                 <Link href={`/produto/${id}`}>
                     <div className="product__image">
                         {prevPrice !== undefined && <Typography type="span">Promoção</Typography>}
-                        <Image src={image} width={240} height={256} alt={name} />
+                        <Image src={image} objectFit="cover" layout="fill" alt={name} placeholder="blur" blurDataURL="/images/loading-image.png" />
                     </div>
                 </Link>
                 <div className="product__actions">

@@ -43,7 +43,7 @@ export default function Header() {
     const { products } = userCartStore((state) => state);
     const removeFromCart = userCartStore((state) => state.removeFromCart);
 
-    // console.log("aqui", products);
+    console.log("aqui", products);
 
     const [cartItems, setCartItems] = useState<any>([]);
     const [isBrowser, setIsBrowser] = useState(false);
@@ -58,6 +58,7 @@ export default function Header() {
     useEffect(() => {
         const productsData = products.map<Product>((value: any) => ({ ...value, ...getProductByID(value.id) }));
         setCartItems(productsData);
+        console.log(productsData);
         // return () => products;
     }, [JSON.stringify(products)]);
 

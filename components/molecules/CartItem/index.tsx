@@ -20,7 +20,7 @@ export default function CartItem({ id, image, name, price, qty }: Product) {
                 <div className="cart__image">
                     <Link href={`/produto/${id}`}>
                         <a>
-                            <Image src={image} height={24} width={24} alt={name} />
+                            <Image src={image} objectFit="cover" layout="fill" alt={name} placeholder="blur" blurDataURL="/images/loading-image.png" />
                         </a>
                     </Link>
                 </div>

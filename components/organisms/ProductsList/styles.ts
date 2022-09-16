@@ -33,7 +33,7 @@ const StyledProductsList = styled.div`
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 1rem;
             ${breakpoints.mobile.standard`
-                grid-template-columns: repeat(auto-fit, minmax(125px, 1fr));
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
                 gap: .25rem;
             `}
         }
