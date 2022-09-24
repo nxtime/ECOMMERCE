@@ -21,6 +21,7 @@ export default function InputNumber({ maxNumber = 999, defaultNumber = 1, onChan
                     type="number"
                     maxLength={3}
                     onChange={() => {
+                        // console.log(inputRef.current!.value);
                         const newValue = typeof inputRef.current!.value === "string" ? 1 : parseInt(inputRef.current!.value, 10);
                         if (newValue > maxNumber || newValue < 1) return;
                         setInputValue(newValue);

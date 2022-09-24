@@ -8,6 +8,8 @@ module.exports = {
     parserOptions: {
         ecmaVersion: "latest",
         sourceType: "module",
+        files: ["*.ts", "*.tsx", "*.js"],
+        extends: ["plugin:@typescript-eslint/recommended", "plugin:@typescript-eslint/recommended-requiring-type-checking"],
         project: "./tsconfig.json"
     },
     plugins: ["react", "prettier"],

@@ -23,6 +23,7 @@ const StyledCartItem = styled("li")`
                 width: 5rem;
                 height: 5rem;
                 cursor: pointer;
+                position: relative;
                 &:hover {
                     opacity: 0.7;
                 }

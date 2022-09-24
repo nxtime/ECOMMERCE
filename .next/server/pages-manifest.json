@@ -1,5 +1,16 @@
 {
-  "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
-  "/_document": "pages/_document.js"
+  "/_document": "pages/_document.js",
+  "/api/hello": "pages/api/hello.js",
+  "/api/products": "pages/api/products.js",
+  "/carrinho": "pages/carrinho.html",
+  "/perfil/enderecos": "pages/perfil/enderecos.html",
+  "/perfil/pagamentos": "pages/perfil/pagamentos.html",
+  "/perfil/pedidos": "pages/perfil/pedidos.html",
+  "/perfil/profile": "pages/perfil/profile.html",
+  "/produto/[id]": "pages/produto/[id].html",
+  "/produtos": "pages/produtos.html",
+  "/_app": "pages/_app.js",
+  "/": "pages/index.html",
+  "/404": "pages/404.html"
 }

@@ -15,35 +15,11 @@ import IconButton from "@/components/molecules/IconButton";
 import Image from "next/image";
 import StyledHeader from "./styles";
 
-// const MOCK_CART = [
-//     {
-//         id: 1,
-//         image: "/images/home_page_banner.png",
-//         name: "Camis",
-//         price: 22.17,
-//         qty: 3
-//     },
-//     {
-//         id: 2,
-//         image: "/images/home_page_banner.png",
-//         name: "Chapéu",
-//         price: 82.47,
-//         qty: 7
-//     },
-//     {
-//         id: 3,
-//         image: "/images/home_page_banner.png",
-//         name: "Calça",
-//         price: 10.28,
-//         qty: 1
-//     }
-// ];
-
 export default function Header() {
     const { products } = userCartStore((state) => state);
     const removeFromCart = userCartStore((state) => state.removeFromCart);
 
-    console.log("aqui", products);
+    // console.log("aqui", products);
 
     const [cartItems, setCartItems] = useState<any>([]);
     const [isBrowser, setIsBrowser] = useState(false);
@@ -58,7 +34,7 @@ export default function Header() {
     useEffect(() => {
         const productsData = products.map<Product>((value: any) => ({ ...value, ...getProductByID(value.id) }));
         setCartItems(productsData);
-        console.log(productsData);
+        // console.log(productsData);
         // return () => products;
     }, [JSON.stringify(products)]);
 

@@ -9,7 +9,7 @@ const StyledTextfield = styled.div`
         .input__actions {
             display: flex;
             align-items: center;
-            
+
             & input {
                 padding: 0.75rem 1rem;
                 /* width: 16rem;

@@ -1,10 +1,13 @@
 import Button from "@/components/atoms/Button";
 import Typography from "@/components/atoms/Typography";
-import Categories from "@/components/organisms/Categories";
+// import Categories from "@/components/organisms/Categories";
 import Filters from "@/components/organisms/Filters";
 import ProductsList from "@/components/organisms/ProductsList";
+// import useProducts from "@/hooks/useProducts";
+// import useProducts from "@/hooks/useProducts";
 import { getPrefetchProductsPages } from "@/lib/get_products";
 import { useEffect, useState } from "react";
+// import { useQuery } from "@tanstack/react-query";
 import StyledProducts from "./styles";
 // import commerce from '../lib/commerce';
 
@@ -12,11 +15,13 @@ export default function Products() {
     const [isBrowser, setIsBrowser] = useState<boolean>(false);
     const [isMenuOpen, setIsMenuOpen] = useState<boolean>(true);
     useEffect(() => {
-        setIsBrowser(true);
+        if (!isBrowser) setIsBrowser(true);
     }, []);
 
-    if (!isBrowser) return null;
+    // const products = useProducts();
 
+    // console.log("Aqui", products);
+    if (!isBrowser) return null;
     const { pages, productsItems } = getPrefetchProductsPages(2, 100);
     return (
         <StyledProducts>
