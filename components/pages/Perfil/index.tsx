@@ -7,7 +7,7 @@ import Payments from "./Payments";
 import Orders from "./Orders";
 import StyledPerfil from "./styles";
 
-export default function Perfil({ children }: PropsWithChildren) {
+export default function PerfilTemplate({ children, activeOption }: PropsWithChildren & { activeOption?: string }) {
     return (
         <StyledPerfil className="perfil">
             <div className="perfil__header">
@@ -19,17 +19,17 @@ export default function Perfil({ children }: PropsWithChildren) {
             </div>
             <div className="perfil__container">
                 <aside>
-                    <ul>
-                        <li>
+                    <ul className="perfil__container__links">
+                        <li className={activeOption === "profile" || activeOption === undefined ? "active" : ""}>
                             <Link href="/perfil/profile">Profile</Link>
                         </li>
-                        <li>
+                        <li className={activeOption === "pedidos" ? "active" : ""}>
                             <Link href="/perfil/pedidos">Pedidos</Link>
                         </li>
-                        <li>
+                        <li className={activeOption === "enderecos" ? "active" : ""}>
                             <Link href="/perfil/enderecos">Endereços</Link>
                         </li>
-                        <li>
+                        <li className={activeOption === "pagamentos" ? "active" : ""}>
                             <Link href="/perfil/pagamentos">Pagamentos</Link>
                         </li>
                     </ul>

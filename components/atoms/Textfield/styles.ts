@@ -5,15 +5,16 @@ const StyledTextfield = styled.div`
         display: flex;
         flex-direction: column;
         justify-content: center;
+        max-width: 100%;
 
         .input__actions {
             display: flex;
             align-items: center;
+            width: 100%;
 
             & input {
                 padding: 0.75rem 1rem;
-                /* width: 16rem;
-                max-width: 100%; */
+                max-width: 100%;
                 background-color: ${theme.colors["neutral-100"]};
                 transition: color ease 0.2s;
             }

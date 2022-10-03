@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import { faker } from "@faker-js/faker";
 
 const MOCK_PRODUCTS: any = [];
@@ -6,8 +7,9 @@ const randomNumber = () => Math.floor(Math.random() * 3) === 1;
 // const image = "/images/home_page_banner.png";
 
 const image = () => faker.image.fashion(1280, 720, true);
+const PRODUCTS_NUM = 700;
 
-for (let i = 1; i <= 100; i += 1) {
+for (let i = 1; i <= PRODUCTS_NUM; i += 1) {
     MOCK_PRODUCTS.push({
         id: i.toString(),
         name: faker.commerce.product(),
@@ -51,9 +53,8 @@ export const getAllProductsPages = (NUMBER_OF_PRODUCTS?: number) => {
     return NUMBER_OF_PRODUCTS !== undefined ? NEW_PRODUCTS_LIST : PRODUCTS_PAGES;
 };
 
-export const getPrefetchProductsPages = (currentPage: number, numberOfProducts?: number) => {
+export const prefetchProductsPages = (currentPage: number, numberOfProducts?: number) => {
     let NEW_PRODUCTS_LIST = PRODUCTS_PAGES;
-
     // eslint-disable-next-line @typescript-eslint/no-unused-expressions
     numberOfProducts !== undefined && NEW_PRODUCTS_LIST.splice(numberOfProducts!, NUMBER_OF_PAGES - 1);
 

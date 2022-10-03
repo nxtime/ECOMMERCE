@@ -35,14 +35,29 @@ const StyledPerfil = styled.div`
                         background-color: ${theme.colors["primary-300"]};
 
                         li {
-                            padding: 1rem;
-                            text-align: center;
+                            & a {
+                                display: block;
+                                padding-block: ${theme.sizing.xl};
+                                text-align: center;
+
+                                &:hover {
+                                    background-color: ${theme.colors["primary-500"]}80;
+                                }
+                            }
                         }
                     }
                 }
 
                 &__option {
                     width: 100%;
+                }
+
+                &__links {
+                    li {
+                        &.active {
+                            background-color: ${theme.colors["primary-500"]};
+                        }
+                    }
                 }
             }
         }

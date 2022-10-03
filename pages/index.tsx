@@ -1,10 +1,9 @@
 import BannerText from "@/components/molecules/BannerText";
 import ProductsList from "@/components/organisms/ProductsList";
 import type { NextPage } from "next";
-import { getPrefetchProductsPages } from "@/lib/get_products";
+import { prefetchProductsPages } from "@/lib/get_products";
 import { useEffect, useState } from "react";
 import { userSavePointStore } from "@/store/userSavePoint";
-// import commerce from '../lib/commerce';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars, react/function-component-definition
 export const Home: NextPage = ({ products }: any) => {
@@ -16,7 +15,7 @@ export const Home: NextPage = ({ products }: any) => {
 
     if (!isBrowser) return null;
 
-    const { pages, productsItems } = getPrefetchProductsPages(lastVisitedPage);
+    const { pages, productsItems } = prefetchProductsPages(lastVisitedPage);
 
     return (
         <>
@@ -29,7 +28,6 @@ export const Home: NextPage = ({ products }: any) => {
                 alt="Qualquer coisa"
             />
             <ProductsList title="Produtos Populares" products={productsItems} pages={pages} />
-
             <BannerText
                 src="/images/home_page_banner.png"
                 title="CALÇAS & CAMISAS"
@@ -41,15 +39,5 @@ export const Home: NextPage = ({ products }: any) => {
         </>
     );
 };
-
-// export const getStaticProps = async () => {
-//   const { data: products } = await commerce.products.list();
-
-//   return {
-//     props: {
-//       products,
-//     },
-//   };
-// };
 
 export default Home;

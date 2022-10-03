@@ -184,6 +184,8 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+/* eslint-disable react/style-prop-object */
+
 /* eslint-disable jsx-a11y/anchor-is-valid */
 
 /* eslint-disable react-hooks/exhaustive-deps */
@@ -262,10 +264,7 @@ function Header() {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("div", {
           className: "nav-item cart",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)(_components_atoms_Button__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .Z, {
-            style: {
-              display: "flex",
-              gap: "0.5rem"
-            },
+            style: "display: flex; gap: 0.5rem",
             color: isCart ? "secondary" : "primary",
             onClick: () => setIsCart(prev => cartItems.length > 0 ? !prev : prev),
             children: [/*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx(_iconify_react__WEBPACK_IMPORTED_MODULE_5__.Icon, {
@@ -296,10 +295,7 @@ function Header() {
         }, index)), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("li", {
           className: "nav-item cart",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)(_components_atoms_Button__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .Z, {
-            style: {
-              display: "flex",
-              gap: "0.5rem"
-            },
+            style: "display: flex; gap: 0.5rem",
             color: isCart ? "secondary" : "primary",
             onClick: () => setIsCart(prev => cartItems.length > 0 ? !prev : prev),
             children: [/*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx(_iconify_react__WEBPACK_IMPORTED_MODULE_5__.Icon, {
@@ -703,7 +699,7 @@ module.exports = require("next/dist/shared/lib/head-manager-context.js");
 
 /***/ }),
 
-/***/ 4957:
+/***/ 5429:
 /***/ ((module) => {
 
 module.exports = require("next/dist/shared/lib/head.js");

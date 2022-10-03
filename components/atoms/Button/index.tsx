@@ -7,6 +7,7 @@ interface ButtonType extends PropsWithChildren {
     nopad?: boolean;
     onClick?(): void;
     className?: string;
+    style?: string;
     // type?: "contained" | "bordered";
 }
 
@@ -17,10 +18,11 @@ export default function Button({
     nopad = false,
     onClick,
     children,
+    style = "",
     ...props
 }: ButtonType & ButtonHTMLAttributes<any>) {
     return (
-        <StyledButton color={color} size={size} onClick={onClick} className={`${className}`} nopad={nopad} {...props}>
+        <StyledButton color={color} size={size} onClick={onClick} className={`${className}`} nopad={nopad} customProps={style} {...props}>
             {children}
         </StyledButton>
     );

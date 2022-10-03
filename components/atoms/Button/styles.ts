@@ -1,11 +1,12 @@
 /* eslint-disable max-len */
 import styled, { css } from "styled-components";
 
-const StyledButton = styled.button<{ color: string; size: "sm" | "md" | "lg"; nopad: boolean }>`
+const StyledButton = styled.button<{ color: string; size: "sm" | "md" | "lg"; nopad: boolean; customProps: any }>`
     ${({
         theme,
         color,
         nopad,
+        customProps,
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
         size
     }) => {
@@ -28,6 +29,7 @@ const StyledButton = styled.button<{ color: string; size: "sm" | "md" | "lg"; no
             cursor: pointer;
             color: ${defaultColorOption(true)};
             transition: all ease .3s;
+            ${customProps};
             
             &:hover {
                 color: ${defaultColorOption(false)};

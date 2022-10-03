@@ -1,3 +1,4 @@
+/* eslint-disable react/style-prop-object */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @typescript-eslint/no-unused-expressions */
@@ -56,7 +57,7 @@ export default function Header() {
                 <div className="header__action">
                     <div className="nav-item cart">
                         <Button
-                            style={{ display: "flex", gap: "0.5rem" }}
+                            style="display: flex; gap: 0.5rem"
                             color={isCart ? "secondary" : "primary"}
                             onClick={() => setIsCart((prev: boolean) => (cartItems.length > 0 ? !prev : prev))}
                         >
@@ -75,7 +76,7 @@ export default function Header() {
                     ))}
                     <li className="nav-item cart">
                         <Button
-                            style={{ display: "flex", gap: "0.5rem" }}
+                            style="display: flex; gap: 0.5rem"
                             color={isCart ? "secondary" : "primary"}
                             onClick={() => setIsCart((prev: boolean) => (cartItems.length > 0 ? !prev : prev))}
                         >
